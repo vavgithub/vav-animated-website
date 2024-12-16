@@ -1,25 +1,17 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import './assets/fonts/customFonts.css';
+import IntroSection from './components/IntroSection';
+import SmoothScrollWrapper from './utilities/SmoothScrollWrapper';
+import PatternSection from './components/PatternSection';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <SmoothScrollWrapper>
+      <div className='container mx-auto '>
+      <IntroSection/>
+      <PatternSection/>
       </div>
-      <h1>VAV Animated Landing Page</h1>
-      
-      
-    </>
+    </SmoothScrollWrapper>
   )
 }
 
