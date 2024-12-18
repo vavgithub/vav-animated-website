@@ -6,6 +6,7 @@ function PatternSection() {
   const containerRef = useRef();
   const dotRef = useRef();
   const bgImgRef = useRef();
+  const threeDdiv = useRef();
 
   useLayoutEffect(()=>{
     const ctx = gsap.context(()=>{
@@ -37,6 +38,16 @@ function PatternSection() {
         skewX : '-20deg',
         duration : 2
       },"-=2")
+      .to(threeDdiv.current,{
+        display :"block"
+      })
+      .to(dotRef.current,{
+        scale:1.5,
+        x: "27%",
+        y : "40%",
+        width:"4%",
+        height:"7.1%"
+      })
     },containerRef.current)
 
     return ()=> ctx.revert()
@@ -49,7 +60,9 @@ function PatternSection() {
           {/* SVG */}
           <img ref={bgImgRef} src={pixelPattern} alt="" className='object-cover  scale-[1.5] background-svg' />
         </div>
-        <div ref={dotRef} className='absolute bg-black w-[72px] h-[72px] '> 
+        <div ref={threeDdiv} className='hidden absolute w-[72px] h-[72px]  border-l-[#cfcfcf] border-b-[#cfcfcf]  border-[50px] skew-x-[-20deg] scale-[1.45]'> 
+        </div>
+        <div ref={dotRef} className=' absolute bg-black w-[72px] h-[72px] '> 
         </div>
     </div>
   )
