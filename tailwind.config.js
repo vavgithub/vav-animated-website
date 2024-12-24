@@ -19,7 +19,7 @@ export default {
         h2: ["24px", { lineHeight: "36px" }],
         h3: ["20px", { lineHeight: "150%" }],
         body: ["16px", { lineHeight: "150%" }],
-        "ultra-90":["90px", { lineHeight: "100%" }],
+        "ultra-90":["90px" ,{lineHeight : "70%"}],
         "ultra-150":["150px", { lineHeight: "70%" }],
         "display-d2": ["42px", { lineHeight: "110%" }],
         "small-p": ["12px", { lineHeight: "150%" }],
