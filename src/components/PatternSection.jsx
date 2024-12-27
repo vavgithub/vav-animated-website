@@ -5,8 +5,6 @@ import glowGradient from '../assets/GradientGlow.svg';
 import gsap from 'gsap';
 
 function PatternSection({containerRef,nextContainer}) {
-  // const containerRef = useRef();
-  const outerRef = useRef();
   const dotRef = useRef();
   const bgImgRef = useRef();
   const threeDdiv = useRef();
@@ -84,12 +82,17 @@ function PatternSection({containerRef,nextContainer}) {
         },"-=0.3")
         .to(vavCubeRef.current,{
           x: "45vw",
-          y: "45vh",
+          y: "40vh",
+          filter: "invert(1)",
           duration : 1
         })
         .to(nextContainer.current,{
-          display:"block"
+          opacity : 1
         },"-=1")
+        .to(vavCubeRef.current,{
+          opacity : 0,
+          duration : 0.1,
+        })
       },containerRef.current) 
     }
 
@@ -97,7 +100,6 @@ function PatternSection({containerRef,nextContainer}) {
   },[nextContainer.current,containerRef.current])
 
   return (
-    // <div ref={outerRef} className='h-[200vh] min-w-screen'>
       <div ref={containerRef} className="sticky opacity-0 top-0 aspect-video z-20 flex justify-center items-center min-w-full max-w-screen " style={{overflowX:"clip",willChange: 'transform'}}>
           {/* Background Container */}
           <div className="absolute top-0 left-0 background-container overflow-hidden w-full aspect-video" >
@@ -119,7 +121,6 @@ function PatternSection({containerRef,nextContainer}) {
             <img src={glowGradient} alt="vav_cube.svg" className='object-cover w-full' />
           </div>
       </div>
-    // </div>
   )
 }
 
