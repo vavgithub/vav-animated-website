@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 function SmoothScrollWrapper({ children }) {
 
   return (
-    <ReactLenis root options={{ autoRaf: true , lerp : 0.035}} >
+    <ReactLenis root options={{ autoRaf: true , lerp : 0.015}} >
       {children}
     </ReactLenis>
   )

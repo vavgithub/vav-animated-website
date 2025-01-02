@@ -34,57 +34,57 @@ function ChangingCuboids({currentContainer, nextContainer}) {
         let ccTimeline = gsap.timeline({
             scrollTrigger : {
               trigger : containerRef.current,
-              start: "top center",
+              start: "top bottom",
               end: "bottom top",
               scrub:1,
-              markers: true,
+              // markers: true,
             }
           });
 
           ccTimeline
           .to(firstCuboidRef.current,{
             opacity : 1,
-            duration : 0.1
+            // duration : 0.1
           })
           .to(secondCuboidRef.current,{
             opacity : 1,
-            duration : 0.1
+            // duration : 0.1
           })
           .to(thirdCuboidRef.current,{
             opacity : 1,
-            duration : 0.1
+            // duration : 0.1
           })
           .to(fourthCuboidRef.current,{
             opacity : 1,
-            duration : 0.1
+            // duration : 0.1
           })
           .to(fifthCuboidRef.current,{
             opacity : 1,
-            duration : 0.1
+            // duration : 0.1
           })
           .to(sixthCuboidRef.current,{
             opacity : 1,
-            duration : 0.1
+            // duration : 0.1
           })
           .to(seventhCuboidRef.current,{
             opacity : 1,
-            duration : 0.1
+            // duration : 0.1
           })
           .to(eighthCuboidRef.current,{
             opacity : 1,
-            duration : 0.1
+            // duration : 0.1
           })
           .to(ninethCuboidRef.current,{
             opacity : 1,
-            duration : 0.1
+            // duration : 0.1
           })
           .to(tenthCuboidRef.current,{
             opacity : 1,
-            duration : 0.1
+            // duration : 0.1
           })
           .to(eleventhCuboidRef.current,{
             opacity : 1,
-            duration : 0.1
+            // duration : 0.1
           })
           .to(nextContainer.current,{
             opacity : 1,

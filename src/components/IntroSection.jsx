@@ -148,7 +148,7 @@ function IntroSection() {
   
 
   return (
-    <div ref={containerRef} className="min-h-[600vh] relative min-w-screen max-w-screen " style={{overflow:"clip"}}>
+    <div ref={containerRef} className="min-h-[800vh] relative min-w-screen max-w-screen " style={{overflow:"clip"}}>
       <div ref={bgRef} style={{willChange : "transform"}}
         className="sticky top-0 w-full max-h-[100vh] overflow-hidden aspect-video bg-[#d3d6db] z-10 ease-linear">
         <p ref={text1Ref}
