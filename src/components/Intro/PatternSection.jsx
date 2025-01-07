@@ -1,7 +1,7 @@
-import React, { useEffect, useLayoutEffect, useRef } from 'react'
-import pixelPattern from '../assets/Pixelpattern.svg';
-import vavCube from '../assets/vavcube.svg';
-import glowGradient from '../assets/GradientGlow.svg';
+import React, { useEffect, useRef } from 'react'
+import pixelPattern from '../../assets/Pixelpattern.svg';
+import vavCube from '../../assets/vavcube.svg';
+import glowGradient from '../../assets/GradientGlow.svg';
 import gsap from 'gsap';
 
 function PatternSection({containerRef,nextContainer}) {

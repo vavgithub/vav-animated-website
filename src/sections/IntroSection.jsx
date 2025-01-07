@@ -1,5 +1,6 @@
-import PatternSection from './PatternSection';
-import StarfieldSection from './StarfieldSection';
+import PatternSection from '../components/Intro/PatternSection';
+import StarfieldSection from '../components/Intro/StarfieldSection';
+import WhiteLogoSection from '../components/Intro/WhiteLogoSection';
 import React, { useEffect, useRef } from 'react';
 import pixelBg from '../assets/Pixelbackground.svg';
 import Cloud1 from '../svg/intro/Cloud1';
@@ -7,13 +8,14 @@ import Cloud2 from '../svg/intro/Cloud2';
 import Cloud3 from '../svg/intro/Cloud3';
 import Key from '../svg/intro/Key';
 import KeyShadow from '../svg/intro/KeyShadow';
-import gsap, { Linear } from 'gsap';
+import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import WhiteLogoSection from './WhiteLogoSection';
+import ProjectSection from './ProjectSection';
+import VavBranding from './VavBranding';
 
 gsap.registerPlugin(ScrollTrigger);
 
-function IntroSection() {
+function IntroSection({scrollerRef,projectSectionRef}) {
   const containerRef = useRef();
   const contentRef = useRef();
   const keyRef = useRef();
@@ -28,7 +30,7 @@ function IntroSection() {
   const patternContainer = useRef();
   const starfieldContainer = useRef();
   const whiteLogoContainer = useRef();
-
+  const brandingRef = useRef();
 
   useEffect(() => {
     let ctx;
@@ -148,7 +150,7 @@ function IntroSection() {
   
 
   return (
-    <div ref={containerRef} className="min-h-[800vh] relative min-w-screen max-w-screen " style={{overflow:"clip"}}>
+    <div ref={containerRef} className="min-h-[1400vh] relative min-w-screen max-w-screen " style={{overflow:"clip"}}>
       <div ref={bgRef} style={{willChange : "transform"}}
         className="sticky top-0 w-full max-h-[100vh] overflow-hidden aspect-video bg-[#d3d6db] z-10 ease-linear">
         <p ref={text1Ref}
@@ -190,7 +192,9 @@ function IntroSection() {
       </div>
       <PatternSection containerRef={patternContainer} nextContainer={starfieldContainer} />
       <StarfieldSection containerRef={starfieldContainer} nextContainer={whiteLogoContainer} />
-      <WhiteLogoSection containerRef={whiteLogoContainer} />
+      <WhiteLogoSection containerRef={whiteLogoContainer} projectSectionRef={projectSectionRef} brandingRef={brandingRef} scrollerRef={scrollerRef} />
+      <VavBranding combinedRef={brandingRef} />
+      <ProjectSection containerRef={projectSectionRef} />
     </div>
   );
 }

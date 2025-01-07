@@ -1,16 +1,16 @@
 import gsap from 'gsap'
 import React, { useEffect, useRef } from 'react'
-import firstCuboid from '../assets/cuboids/1.png'
-import secondCuboid from '../assets/cuboids/2.png'
-import thirdCuboid from '../assets/cuboids/3.png'
-import fourthCuboid from '../assets/cuboids/4.png'
-import fifthCuboid from '../assets/cuboids/5.png'
-import sixthCuboid from '../assets/cuboids/6.png'
-import seventhCuboid from '../assets/cuboids/7.png'
-import eighthCuboid from '../assets/cuboids/8.png'
-import ninethCuboid from '../assets/cuboids/9.png'
-import tenthCuboid from '../assets/cuboids/10.png'
-import eleventhCuboid from '../assets/cuboids/11.png'
+import firstCuboid from '../../assets/cuboids/1.png'
+import secondCuboid from '../../assets/cuboids/2.png'
+import thirdCuboid from '../../assets/cuboids/3.png'
+import fourthCuboid from '../../assets/cuboids/4.png'
+import fifthCuboid from '../../assets/cuboids/5.png'
+import sixthCuboid from '../../assets/cuboids/6.png'
+import seventhCuboid from '../../assets/cuboids/7.png'
+import eighthCuboid from '../../assets/cuboids/8.png'
+import ninethCuboid from '../../assets/cuboids/9.png'
+import tenthCuboid from '../../assets/cuboids/10.png'
+import eleventhCuboid from '../../assets/cuboids/11.png'
 
 
 function ChangingCuboids({currentContainer, nextContainer}) {
@@ -44,47 +44,48 @@ function ChangingCuboids({currentContainer, nextContainer}) {
           ccTimeline
           .to(firstCuboidRef.current,{
             opacity : 1,
-            // duration : 0.1
+            duration : 0.4,
+            delay : 2
           })
           .to(secondCuboidRef.current,{
             opacity : 1,
-            // duration : 0.1
+            duration : 0.4
           })
           .to(thirdCuboidRef.current,{
             opacity : 1,
-            // duration : 0.1
+            duration : 0.4
           })
           .to(fourthCuboidRef.current,{
             opacity : 1,
-            // duration : 0.1
+            duration : 0.4
           })
           .to(fifthCuboidRef.current,{
             opacity : 1,
-            // duration : 0.1
+            duration : 0.4
           })
           .to(sixthCuboidRef.current,{
             opacity : 1,
-            // duration : 0.1
+            duration : 0.4
           })
           .to(seventhCuboidRef.current,{
             opacity : 1,
-            // duration : 0.1
+            duration : 0.4
           })
           .to(eighthCuboidRef.current,{
             opacity : 1,
-            // duration : 0.1
+            duration : 0.4
           })
           .to(ninethCuboidRef.current,{
             opacity : 1,
-            // duration : 0.1
+            duration : 0.4
           })
           .to(tenthCuboidRef.current,{
             opacity : 1,
-            // duration : 0.1
+            duration : 0.4
           })
           .to(eleventhCuboidRef.current,{
             opacity : 1,
-            // duration : 0.1
+            duration : 0.4
           })
           .to(nextContainer.current,{
             opacity : 1,
