@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react'
 import vavCube from '../../assets/vavcube.svg';
 import gsap from 'gsap';
-import TextLogo from '../../svg/textLogo';
-import TextLogoShadow from '../../svg/TextLogoShadow';
 import GradientLogo from '../../svg/GradientLogo';
+import TextLogoShadow from '../../svg/TextLogoShadow';
+import TextLogo from '../../svg/TextLogo';
 
 function WhiteLogoSection({containerRef, projectSectionRef , brandingRef,scrollerRef}) {
     const vavCubeRef = useRef();

@@ -1,6 +1,6 @@
 import React from 'react'
 import vavCube from '../assets/vavcube.svg';
-import TextLogo from '../svg/textLogo';
+import TextLogo from '../svg/TextLogo';
 import TextLogoShadow from '../svg/TextLogoShadow';
 import GradientLogo from '../svg/GradientLogo';
 
