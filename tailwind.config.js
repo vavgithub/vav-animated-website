@@ -8,6 +8,8 @@ export default {
       },
       fontFamily: {
         'neue-bit': ['PPNeueBit-Bold', 'sans-serif'],
+        'goia': ['Goia-Regular', 'sans-serif'],
+        'editorial-italic': ['PPEditorial-Italic', 'sans-serif'],
       },
       colors :{
         background:{

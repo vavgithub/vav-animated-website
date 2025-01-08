@@ -14,10 +14,7 @@ function WhiteLogoSection({containerRef, projectSectionRef , brandingRef,scrolle
 
     useEffect(()=>{
       let ctx;
-      console.log(containerRef.current,projectSectionRef.current,brandingRef.current,scrollerRef.current)
       if(containerRef.current && projectSectionRef.current && brandingRef.current && scrollerRef.current){
-        const containerRect = containerRef.current.getBoundingClientRect()
-        console.log("CCC",containerRect);
         
         ctx = gsap.context(()=>{
           let logoTimeline = gsap.timeline({
@@ -112,7 +109,7 @@ function WhiteLogoSection({containerRef, projectSectionRef , brandingRef,scrolle
             <GradientLogo/>
           </div>
       </div>
-      <div className='w-[calc(100vw/10)] pl-[1rem] scale-[2.8]   translate-y-[4%]' style={{overflowX: "clip"}}>
+      <div className='w-[calc(100vw/10)] pl-[0.51rem] scale-[2.8]   translate-y-[4%]' style={{overflowX: "clip"}}>
         <div ref={vavTextRef} className='opacity-0 relative w-[calc(100vw/11)] '>
           <div ref={vavTextShadowRef} className='absolute top-0 left-0 w-[calc(100vw/11)] '>
             <TextLogoShadow/>

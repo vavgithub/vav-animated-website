@@ -192,7 +192,7 @@ function IntroSection({scrollerRef,projectSectionRef}) {
       </div>
       <PatternSection containerRef={patternContainer} nextContainer={starfieldContainer} />
       <StarfieldSection containerRef={starfieldContainer} nextContainer={whiteLogoContainer} />
-      <WhiteLogoSection containerRef={whiteLogoContainer} projectSectionRef={projectSectionRef} brandingRef={brandingRef} scrollerRef={scrollerRef} />
+      <WhiteLogoSection containerRef={whiteLogoContainer} projectSectionRef={projectSectionRef} brandingRef={brandingRef} scrollerRef={scrollerRef}  />
       <VavBranding combinedRef={brandingRef} />
       <ProjectSection containerRef={projectSectionRef} />
     </div>

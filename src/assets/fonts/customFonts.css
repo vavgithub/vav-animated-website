@@ -4,3 +4,17 @@
     font-weight: bold;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'PPEditorial-Italic';
+    src: url('./PPEditorialNew-Italic.otf') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Goia-Regular';
+    src: url('./GoiaDisplay-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
