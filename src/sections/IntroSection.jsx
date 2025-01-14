@@ -9,11 +9,10 @@ import Cloud3 from '../svg/intro/Cloud3';
 import Key from '../svg/intro/Key';
 import KeyShadow from '../svg/intro/KeyShadow';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ProjectSection from './ProjectSection';
 import VavBranding from './VavBranding';
+import TunnelingSection from '../components/Projects/TunnelingSection';
 
-gsap.registerPlugin(ScrollTrigger);
 
 function IntroSection({scrollerRef,projectSectionRef}) {
   const containerRef = useRef();
@@ -31,6 +30,8 @@ function IntroSection({scrollerRef,projectSectionRef}) {
   const starfieldContainer = useRef();
   const whiteLogoContainer = useRef();
   const brandingRef = useRef();
+
+  const tunnelRef = useRef();
 
   useEffect(() => {
     let ctx;
@@ -145,7 +146,8 @@ function IntroSection({scrollerRef,projectSectionRef}) {
     //To get the references updated
     requestAnimationFrame(calculateBoundingBox);
   
-    return () => ctx && ctx.revert();
+    return () => {
+      ctx && ctx.revert();}
   }, []);
   
 
@@ -194,7 +196,8 @@ function IntroSection({scrollerRef,projectSectionRef}) {
       <StarfieldSection containerRef={starfieldContainer} nextContainer={whiteLogoContainer} />
       <WhiteLogoSection containerRef={whiteLogoContainer} projectSectionRef={projectSectionRef} brandingRef={brandingRef} scrollerRef={scrollerRef}  />
       <VavBranding combinedRef={brandingRef} />
-      <ProjectSection containerRef={projectSectionRef} />
+      <ProjectSection containerRef={projectSectionRef} scrollerRef={scrollerRef} combinedRef={brandingRef} tunnelRef={tunnelRef} />
+      <TunnelingSection containerRef={tunnelRef} />
     </div>
   );
 }

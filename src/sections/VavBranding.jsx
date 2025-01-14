@@ -6,7 +6,7 @@ import GradientLogo from '../svg/GradientLogo';
 
 function VavBranding({combinedRef}) {
   return (
-    <div ref={combinedRef} className='fixed opacity-0 top-0 right-0 z-[50] min-w-screen max-w-screen min-h-screen max-h-screen'>
+    <div ref={combinedRef} className='fixed opacity-0 top-0 right-0 z-[150] min-w-screen max-w-screen min-h-screen max-h-screen'>
       <div className='flex justify-center scale-[0.5] items-center'>
         <div className=' w-[calc(100vw/11)]   aspect-square ' >
                 <img src={vavCube} alt="vav_cube.svg" className='object-cover w-full' />

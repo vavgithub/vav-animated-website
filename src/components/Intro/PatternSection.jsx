@@ -20,7 +20,7 @@ function PatternSection({containerRef,nextContainer}) {
             trigger : containerRef.current,
             start: "top bottom",
             end: "center top",
-            scrub:1,
+            scrub:true,
             // markers: true,
           }
         });

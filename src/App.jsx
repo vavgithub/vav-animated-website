@@ -6,6 +6,10 @@ import SmoothScrollWrapper from './utilities/SmoothScrollWrapper';
 import scroller from './assets/Scrollbar.svg'
 import navigationStar from './assets/NavigationStar.svg'
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+gsap.registerPlugin(useGSAP,ScrollTrigger);
 
 function App() {
     const projectSectionRef = useRef();
@@ -37,7 +41,7 @@ function App() {
   return (
     <SmoothScrollWrapper>
       {/* Scroller */}
-      <div ref={scrollerRef} className='opacity-0 fixed top-0 left-0 min-w-full w-screen min-h-screen max-h-full z-[50] '>
+      <div ref={scrollerRef} className='opacity-0 fixed top-0 left-0 min-w-full w-screen min-h-screen max-h-full z-[150] '>
           <div className='w-full max-h-screen translate-x-[93.5%] translate-y-[20%]'>
                 <img src={scroller} alt="scroller.svg" className='max-h-[70vh] object-cover' />
           </div>

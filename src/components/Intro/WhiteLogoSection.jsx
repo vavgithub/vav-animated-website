@@ -22,7 +22,7 @@ function WhiteLogoSection({containerRef, projectSectionRef , brandingRef,scrolle
               trigger : vavTextRef.current,
               start: "top bottom",
               end: "end top",
-              scrub:1,
+              scrub:true,
               // markers: true,
             }
           });
