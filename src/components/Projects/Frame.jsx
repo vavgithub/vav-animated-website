@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 
 const LEVELS = {
     0 : 'max-w-[6vw]',
@@ -9,9 +9,9 @@ const LEVELS = {
     5 : 'max-w-[22vw]',
 }
 
-export const ThreeDFrame = ({src,isVideo,extraClasses,LEVEL,imageWidth,imageClasses}) => {
+export const ThreeDFrame = forwardRef(({src,isVideo,extraClasses,LEVEL,imageWidth,imageClasses},ref) => {
   return (
-    <div className={LEVELS[LEVEL] + '  absolute ' + extraClasses}>
+    <div ref={ref} className={LEVELS[LEVEL] + '  absolute ' + extraClasses}>
       {
         isVideo ? 
         <div>
@@ -24,11 +24,11 @@ export const ThreeDFrame = ({src,isVideo,extraClasses,LEVEL,imageWidth,imageClas
       }
     </div>
   )
-}
+})
 
-function Frame({src,isVideo,extraClasses,LEVEL,imageWidth,imageClasses}) {
+function Frame({src,isVideo,extraClasses,LEVEL,imageWidth,imageClasses},ref) {
   return (
-    <div className={LEVELS[LEVEL] + ' p-2 bg-[#eeecec] rounded-sm absolute ' + extraClasses}>
+    <div ref={ref} className={LEVELS[LEVEL] + ' p-2 bg-[#eeecec] rounded-sm absolute ' + extraClasses}>
       {
         isVideo ? 
         <div>
@@ -43,4 +43,4 @@ function Frame({src,isVideo,extraClasses,LEVEL,imageWidth,imageClasses}) {
   )
 }
 
-export default Frame
+export default forwardRef(Frame)

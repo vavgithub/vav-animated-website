@@ -30,10 +30,18 @@ import foundation1 from '../../assets/projects/videos/Foundation1.mp4'
 import haulerHub from '../../assets/projects/videos/HaulerHub.mp4'
 import indicor from '../../assets/projects/videos/Indicor.mp4'
 import techIND from '../../assets/projects/videos/TechnologyIND.mp4'
+import avaVideo from '../../assets/projects/videos/avaVideo.mp4'
+import rocket from '../../assets/projects/videos/Rocket.mp4'
+import cmwVideo from '../../assets/projects/videos/CMWVideo.mp4'
+import birdSuccess from '../../assets/projects/videos/BirdSuccess.mp4'
+import twinLabs from '../../assets/projects/videos/TwinLabs.mp4'
+
 
 
 function TunnelingSection({ containerRef }) {
   const squares = useRef(Array(8).fill().map(() => React.createRef()));
+  const frames = useRef(Array(32).fill().map(() => React.createRef()));
+
 
   const letterRef = useRef();
   const framesRef = useRef();
@@ -49,31 +57,10 @@ function TunnelingSection({ containerRef }) {
           start: 'top bottom',
           end: 'bottom top',
           scrub: 1,
-          markers: true
+          // markers: true
         }
       });
       squares.current[5].current.style.overflow = "hidden"
-      // Animate each square
-      // squares.current.forEach((squareRef, i) => {
-      //   const initialScale = (i + 1) * 2;
-      //   const initialRotation = i * 10;
-      //   const initialOpacity = i < 4 ? 0 : 1
-
-      //   tl.fromTo(squareRef.current, {
-      //     zIndex : 190 - (i * 10),
-      //     scale : (i + 1)  * 2,
-      //     rotate: `${(i + 1) * 10}deg`,
-      //     opacity:  i < 4 ? 0 : 1
-      //   },{
-      //     scale: initialScale * 10,
-      //     lazy : true,
-      //     force3d:true,
-      //     rotation: initialRotation - 360,
-      //     opacity: initialOpacity === 0 ? 1 : 0,
-      //     duration: 2,
-      //     ease: 'none'
-      //   }, 0);
-      // });
 
       squares.current.forEach((squareRef,i) =>{
 
@@ -81,13 +68,14 @@ function TunnelingSection({ containerRef }) {
           zIndex : 190 - (i * 10),
           scale : (i  * 0.02) + i,
           rotation: (i + 1) * 10,
-          opacity:  i < 4 ? 0 : 1
+          opacity:  i < 4 ? 0.1 : 1
         },{
           scale : (i  * 28) + i,
           rotation: ((i + 1) * 10) - 360,
-          opacity: i < 4 ? 1 : 0,
-          delay : 0.75 ,
-          duration : 2
+          opacity: i < 4 ? 1 : 0.1,
+          delay : 0.7 ,
+          lazy: true,
+          duration : 1.7
         },0)
 
       })
@@ -105,15 +93,37 @@ function TunnelingSection({ containerRef }) {
         opacity : 0
       },{
         opacity : 1
-      },"-=1.9") 
+      },"-=1.6") 
       .fromTo(framesRef.current,{
         y : "+100vh"
       },{
         y : "0",
         duration : 1,
-        // ease : "back.inOut(1)"
-      },"-=1.8") 
+        ease : "back.inOut(1)"
+      },"-=1.5") 
 
+      // frames.current.forEach((frame)=>{
+      //   const yValue = Math.floor(Math.random() * 25);
+
+      //   tl.to(frame.current,{
+      //     y : `-=${yValue}vh`,
+      //     ease :'bounce.inOut'
+      //   },0)
+      // })
+
+      tl
+      .fromTo(framesRef.current,{
+        y : "0"
+      },{
+        y : "-150vh",
+        duration : 1,
+        ease : "back.inOut(1.5)"
+      })
+      .to(letterRef.current,{
+        y : "-100vh",
+        duration : 1,
+        ease :"back.inOut(1.5)"
+      },"-=1")
     }, containerRef); // Scope to our component
     // Cleanup
     return () => ctx.revert();
@@ -137,7 +147,7 @@ function TunnelingSection({ containerRef }) {
               }}
             />
           ))}
-          <div ref={letterRef} className='opacity-0 flex flex-col gap-4 xl:gap-10'>
+          <div ref={letterRef} style={{willChange : "opacity"}} className='opacity-0 flex flex-col gap-4 xl:gap-10'>
             <h1 className='text-ultra-90 xl:text-ultra-120 min-[1600px]:text-ultra-150 font-goia whitespace-nowrap z-[3]'>
             Let's do this 
             </h1>
@@ -147,38 +157,44 @@ function TunnelingSection({ containerRef }) {
           </div>
         </div>
           <div ref={framesRef} className='absolute top-0 left-0 w-screen max-w-screen min-h-screen '>
-              <Frame src={beautiful} LEVEL={2} extraClasses={'top-0 left-0  translate-y-[20vh] translate-x-[60vw] -z-[1]'} />
-              <Frame src={hogSmash} LEVEL={4} imageWidth={" w-[18.5vw] translate-x-[-1%]"} extraClasses={'top-0 left-0  translate-y-[14vh] translate-x-[5vw] -z-[1]'} />
-              <Frame src={indicorBlue} LEVEL={4}  extraClasses={'top-0 left-0  translate-y-[92vh] translate-x-[75vw] -z-[1]'} />
-              <Frame src={hogSmash2} LEVEL={3} imageWidth={" w-[16.3vw] translate-x-[-11%]"} extraClasses={'top-0 left-0  translate-y-[14vh] translate-x-[40vw] -z-[1]'} />
-              <Frame src={mercuryBlue} LEVEL={3} imageWidth={"w-[16.7vw]"} extraClasses={'top-0 left-0  translate-y-[100vh] translate-x-[55vw] -z-[1]'} />
-              <Frame src={indicorHome} LEVEL={3} imageClasses={"h-[20.5vh]"}  extraClasses={'top-0 left-0  translate-y-[44vh] translate-x-[20vw] -z-[1]'} />
+              <Frame ref={frames.current[0]} src={beautiful} LEVEL={2} extraClasses={'top-0 left-0  translate-y-[20vh] translate-x-[60vw] -z-[1]'} />
+              <Frame ref={frames.current[1]} src={hogSmash} LEVEL={4} imageWidth={" w-[18.5vw] translate-x-[-1%]"} extraClasses={'top-0 left-0  translate-y-[14vh] translate-x-[5vw] -z-[1]'} />
+              <Frame ref={frames.current[2]} src={indicorBlue} LEVEL={4}  extraClasses={'top-0 left-0  translate-y-[92vh] translate-x-[75vw] -z-[1]'} />
+              <Frame ref={frames.current[3]} src={hogSmash2} LEVEL={3} imageWidth={" w-[16.3vw] translate-x-[-11%]"} extraClasses={'top-0 left-0  translate-y-[14vh] translate-x-[40vw] -z-[1]'} />
+              <Frame ref={frames.current[4]} src={mercuryBlue} LEVEL={3} imageWidth={"w-[16.7vw]"} extraClasses={'top-0 left-0  translate-y-[100vh] translate-x-[55vw] -z-[1]'} />
+              <Frame ref={frames.current[5]} src={indicorHome} LEVEL={3} imageClasses={"h-[20.5vh]"}  extraClasses={'top-0 left-0  translate-y-[44vh] translate-x-[20vw] -z-[1]'} />
 
-              <Frame src={ava1} LEVEL={2} extraClasses={'top-0 left-0  translate-y-[83vh] translate-x-[45vw] -z-10'} />
-              <Frame src={haulerHub1} LEVEL={2}  extraClasses={'top-0 left-0  translate-y-[70vh] translate-x-[52vw] -z-[1]'} />
-              <Frame src={haulerHub2} LEVEL={4}  extraClasses={'top-0 left-0  translate-y-[69vh] translate-x-[10vw] -z-[1]'} />
-              <Frame src={rovixWomen} LEVEL={3}  extraClasses={'top-0 left-0  translate-y-[95vh] translate-x-[95vw] -z-[1]'} />
-              <Frame src={vstream} LEVEL={3} imageWidth={"w-[16.1vw]"} extraClasses={'top-0 left-0  translate-y-[2vh] translate-x-[55vw] -z-[1]'} />
+              <Frame ref={frames.current[6]} src={ava1} LEVEL={2} extraClasses={'top-0 left-0  translate-y-[83vh] translate-x-[45vw] -z-10'} />
+              <Frame ref={frames.current[7]} src={haulerHub1} LEVEL={2}  extraClasses={'top-0 left-0  translate-y-[70vh] translate-x-[52vw] -z-[1]'} />
+              <Frame ref={frames.current[8]} src={haulerHub2} LEVEL={4}  extraClasses={'top-0 left-0  translate-y-[69vh] translate-x-[10vw] -z-[1]'} />
+              <Frame ref={frames.current[9]} src={rovixWomen} LEVEL={3}  extraClasses={'top-0 left-0  translate-y-[95vh] translate-x-[95vw] -z-[1]'} />
+              <Frame ref={frames.current[10]} src={vstream} LEVEL={3} imageWidth={"w-[14.1vw]"} extraClasses={'top-0 left-0  translate-y-[2vh] translate-x-[55vw] -z-[1]'} />
               
-              <ThreeDFrame src={ideation3d} LEVEL={1} extraClasses={'top-0 left-0  translate-y-[38vh] translate-x-[31vw] -z-[1]'} />
-              <ThreeDFrame src={hhb3d} LEVEL={0} extraClasses={'top-0 left-0  translate-y-[78vh] translate-x-[30vw] -z-[1]'} />
-              <ThreeDFrame src={hhb3d2} LEVEL={1} extraClasses={'top-0 left-0  translate-y-[80vh] translate-x-[63vw] -z-[1]'} />
-              <ThreeDFrame src={weight3d} LEVEL={2} extraClasses={'top-0 left-0  translate-y-[88vh] translate-x-[23vw] -z-[1]'} />
+              <ThreeDFrame ref={frames.current[11]} src={ideation3d} LEVEL={1} extraClasses={'top-0 left-0  translate-y-[38vh] translate-x-[31vw] -z-[1]'} />
+              <ThreeDFrame ref={frames.current[12]} src={hhb3d} LEVEL={0} extraClasses={'top-0 left-0  translate-y-[78vh] translate-x-[30vw] -z-[1]'} />
+              <ThreeDFrame ref={frames.current[13]} src={hhb3d2} LEVEL={1} extraClasses={'top-0 left-0  translate-y-[80vh] translate-x-[63vw] -z-[1]'} />
+              <ThreeDFrame ref={frames.current[14]} src={weight3d} LEVEL={2} extraClasses={'top-0 left-0  translate-y-[88vh] translate-x-[23vw] -z-[1]'} />
 
-              <Frame src={aiAssistant} LEVEL={3}  extraClasses={'top-0 left-0  translate-y-[60vh] translate-x-[35.5vw] z-20'} />
-              <Frame src={graph} LEVEL={3}  extraClasses={'top-0 left-0  translate-y-[29vh] translate-x-[92vw] z-[1]'} />
-              <Frame src={avaWeb3} LEVEL={4}  extraClasses={'top-0 left-0  translate-y-[50vh] translate-x-[52vw] z-20'} />
-              <Frame src={vstream2} LEVEL={3} imageWidth={"w-[14vw]"} extraClasses={'top-0 left-0  translate-y-[47vh] translate-x-[-2vw] z-20'} />
-              <Frame src={mercury2} LEVEL={3}  extraClasses={'top-0 left-0  translate-y-[66vh] translate-x-[-6vw] -z-20'} />
-              <Frame src={sony} LEVEL={2}  extraClasses={'top-0 left-0  translate-y-[42vh] translate-x-[90vw] z-0'} />
-              <Frame src={rovixProducts} LEVEL={3}  extraClasses={'top-0 left-0  translate-y-[60vh] translate-x-[90vw] z-20'} />
-              <Frame src={mapView} LEVEL={3}  extraClasses={'top-0 left-0  translate-y-[93vh] translate-x-[30.5vw] -z-20'} />
+              <Frame ref={frames.current[15]} src={aiAssistant} LEVEL={3}  extraClasses={'top-0 left-0  translate-y-[60vh] translate-x-[35.5vw] z-20'} />
+              <Frame ref={frames.current[16]} src={graph} LEVEL={3}  extraClasses={'top-0 left-0  translate-y-[29vh] translate-x-[92vw] z-[1]'} />
+              <Frame ref={frames.current[17]} src={avaWeb3} LEVEL={4}  extraClasses={'top-0 left-0  translate-y-[50vh] translate-x-[52vw] z-20'} />
+              <Frame ref={frames.current[18]} src={vstream2} LEVEL={3} imageWidth={"w-[14vw]"} extraClasses={'top-0 left-0  translate-y-[47vh] translate-x-[-2vw] z-20'} />
+              <Frame ref={frames.current[19]} src={mercury2} LEVEL={3}  extraClasses={'top-0 left-0  translate-y-[66vh] translate-x-[-6vw] -z-20'} />
+              <Frame ref={frames.current[20]} src={sony} LEVEL={2}  extraClasses={'top-0 left-0  translate-y-[42vh] translate-x-[90vw] z-0'} />
+              <Frame ref={frames.current[21]} src={rovixProducts} LEVEL={3}  extraClasses={'top-0 left-0  translate-y-[60vh] translate-x-[90vw] z-20'} />
+              <Frame ref={frames.current[22]} src={mapView} LEVEL={3}  extraClasses={'top-0 left-0  translate-y-[100vh] translate-x-[30.5vw] z-20'} />
 
               {/* Videos */}
-              <Frame src={foundation1} isVideo LEVEL={2}  extraClasses={'top-0 left-0  translate-y-[0vh] translate-x-[29vw] -z-20 '} />
-              <Frame src={techIND} isVideo LEVEL={2}  extraClasses={'top-0 left-0  translate-y-[37vh] translate-x-[42vw] -z-20 '} />
-              <Frame src={haulerHub} isVideo LEVEL={2}  extraClasses={'top-0 left-0  translate-y-[115vh] translate-x-[76vw] -z-20 '} />
-              <Frame src={indicor} isVideo LEVEL={3}  extraClasses={'top-0 left-0  translate-y-[65vh] translate-x-[72vw] -z-20 '} />
+              <Frame ref={frames.current[23]} src={foundation1} isVideo LEVEL={2}  extraClasses={'top-0 left-0  translate-y-[0vh] translate-x-[29vw] -z-20 '} />
+              <Frame ref={frames.current[24]} src={techIND} isVideo LEVEL={2}  extraClasses={'top-0 left-0  translate-y-[37vh] translate-x-[42vw] -z-20 '} />
+              <Frame ref={frames.current[25]} src={haulerHub} isVideo LEVEL={2}  extraClasses={'top-0 left-0  translate-y-[115vh] translate-x-[76vw] -z-20 '} />
+              <Frame ref={frames.current[26]} src={indicor} isVideo LEVEL={3}  extraClasses={'top-0 left-0  translate-y-[65vh] translate-x-[72vw] -z-20 '} />
+
+              <Frame ref={frames.current[27]} src={cmwVideo} isVideo LEVEL={3}  extraClasses={'top-0 left-0  translate-y-[106vh] translate-x-[18vw] -z-20 '} />
+              <Frame ref={frames.current[28]} src={avaVideo} isVideo LEVEL={3}  extraClasses={'top-0 left-0  translate-y-[22vh] translate-x-[24vw] -z-20 '} />
+              <Frame ref={frames.current[29]} src={rocket} isVideo LEVEL={3}  extraClasses={'top-0 left-0  translate-y-[29vh] translate-x-[72vw] -z-20 '} />
+              <Frame ref={frames.current[30]} src={birdSuccess} isVideo LEVEL={2}  extraClasses={'top-0 left-0  translate-y-[110vh] translate-x-[7vw] -z-20 '} />
+              <Frame ref={frames.current[31]} src={twinLabs} isVideo LEVEL={2}  extraClasses={'top-0 left-0  translate-y-[113vh] translate-x-[40vw] -z-20 '} />
 
           </div>
       </div>

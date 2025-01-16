@@ -23,7 +23,7 @@ function App() {
                 gsap.to(starRef.current, {
                     scrollTrigger: {
                         trigger: scrollableAreaRef.current, // Element that triggers the ScrollTrigger
-                        start: "35% top", // Start when the top of the scroller meets the top of the viewport
+                        start: "20% top", // Start when the top of the scroller meets the top of the viewport
                         end: "bottom bottom", // End when the bottom of the scroller leaves the bottom of the viewport
                         scrub: true, // Smooth scrubbing
                         // markers : true

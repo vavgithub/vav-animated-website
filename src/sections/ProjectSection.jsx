@@ -25,13 +25,11 @@ function ProjectSection({containerRef,scrollerRef,combinedRef,tunnelRef}) {
   const shape4Ref = useRef();
 
   useEffect(() => {
-    console.log("WORKS")
     let ctx;
     if(containerRef.current && scrollerRef.current && combinedRef.current){
 
       strokeRef.current.style.transformOrigin = "50% 55%";
       letterRef.current.style.transformOrigin = `46% 95%`;
-      console.log(thirdLineRef.current.getBoundingClientRect())
       const scrollerDiv = scrollerRef.current?.querySelector('div');
 
       ctx = gsap.context(()=>{
